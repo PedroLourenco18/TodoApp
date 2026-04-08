@@ -1,3 +1,5 @@
+package br.com.pedrolourenco.todoapp;
+
 import br.com.pedrolourenco.todoapp.controller.Controller;
 import br.com.pedrolourenco.todoapp.repository.TaskRepository;
 import br.com.pedrolourenco.todoapp.repository.TaskRepositoryImpl;
