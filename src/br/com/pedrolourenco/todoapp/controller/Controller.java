@@ -35,7 +35,7 @@ public class Controller {
             //EXIT
             if (command.equals(UserCommands.EXIT)) {
                 System.out.println("Obrigado por usar o Gerenciador de Tarefas");
-                exit = true;
+                break;
             }
 
             try {
@@ -126,14 +126,10 @@ public class Controller {
 
     private String taskListToString(List<Task> taskList){
         return taskList.stream()
-                .map(t -> {
-                    String taskInfo = "Titulo: " + t.title() +
-                            "\nDescrição: " + t.description() +
-                            "\nData de criação: " + t.createdAt().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
-                            "\nData de vencimento: " + t.dueDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
-                    return taskInfo;
-                })
+                .map(t -> "Titulo: " + t.title() +
+                        "\nDescrição: " + t.description() +
+                        "\nData de criação: " + t.createdAt().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
+                        "\nData de vencimento: " + t.dueDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")))
                 .reduce(
                         "Tarefas a serem feitas:",
                         (s, s2) -> s + "\n--------------------\n" + s2
