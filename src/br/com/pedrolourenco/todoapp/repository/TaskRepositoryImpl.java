@@ -106,10 +106,7 @@ public class TaskRepositoryImpl implements TaskRepository{
 
     private void saveTaskInHistory(Task task){
         try(Writer out = new BufferedWriter(new FileWriter("data/completed_tasks_history.txt", StandardCharsets.UTF_8, true))){
-            out.append("Title: " + task.title() +
-                    " - Description: " + task.description() +
-                    " - Created At: " + task.createdAt() +
-                    " - Due Date: " + task.dueDate());
+            out.append("Title: ").append(task.title()).append(" - Description: ").append(task.description()).append(" - Created At: ").append(String.valueOf(task.createdAt())).append(" - Due Date: ").append(String.valueOf(task.dueDate()));
             out.append("\n");
         } catch (IOException e) {
             throw new RuntimeException(e);

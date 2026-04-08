@@ -6,9 +6,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface TaskRepository {
-    public List<Task> getTasks();
-    public List<Task> getTasksByDates(LocalDate startDate, LocalDate endDate);
-    public boolean existTitle(String title);
-    public void saveTask(Task task);
-    public boolean getTaskDone(String title);
+    List<Task> getTasks();
+    List<Task> getTasksByDates(LocalDate startDate, LocalDate endDate);
+    boolean existTitle(String title);
+    void saveTask(Task task);
+    boolean getTaskDone(String title);
 }

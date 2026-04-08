@@ -127,13 +127,12 @@ public class Controller {
     private String taskListToString(List<Task> taskList){
         return taskList.stream()
                 .map(t -> {
-                    StringBuilder taskInfo = new StringBuilder();
-                    taskInfo.append("Titulo: ").append(t.title())
-                            .append("\nDescrição: ").append(t.description())
-                            .append("\nData de criação: ").append(t.createdAt().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")))
-                            .append("\nData de vencimento: ").append(t.dueDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                    String taskInfo = "Titulo: " + t.title() +
+                            "\nDescrição: " + t.description() +
+                            "\nData de criação: " + t.createdAt().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
+                            "\nData de vencimento: " + t.dueDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
-                    return taskInfo.toString();
+                    return taskInfo;
                 })
                 .reduce(
                         "Tarefas a serem feitas:",
